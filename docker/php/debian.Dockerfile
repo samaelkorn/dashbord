@@ -1,4 +1,4 @@
-FROM php:8.2-fpm
+FROM php:8.2-rc-fpm
 
 # Arguments defined in docker-compose.yml
 ARG user
@@ -21,7 +21,6 @@ RUN apt-get update && apt-get install -y \
     libfreetype6 libfreetype6-dev \
     locales \
     pkg-config \
-    sqlite3 libsqlite3-dev \
     libzip-dev zip unzip\
     jpegoptim optipng pngquant gifsicle \
     git \
@@ -58,12 +57,7 @@ RUN docker-php-ext-install \
     mbstring \
     opcache \
     pdo \
-    pdo_pgsql \
-    pdo_sqlite \
-    pcntl \
-    tokenizer \
-    xml \
-    zip
+    pdo_pgsql
 
 ###########################################################################
 # xDebug:
